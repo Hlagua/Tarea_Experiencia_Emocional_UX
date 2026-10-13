@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prueba UX emocional</title>
+<style>
+  :root{--ink:#1F2937;--muted:#5B6472;--line:#DDE2E9;--bg:#F3F4F6;--brand:#1D4ED8;--ok:#15803D;--bad:#B91C1C}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+  button{font:inherit;cursor:pointer}
+  .app{display:grid;grid-template-columns:1fr 380px;height:100vh}
+  .stage{position:relative;overflow:hidden;background:#111827;display:flex;align-items:flex-start;justify-content:center}
+  .viewport{position:absolute;top:0;left:0;width:1366px;height:927px;transform-origin:0 0;background:#fff}
+  .viewport img{display:block;width:1358px;height:auto}
+  .viewport iframe{border:0;width:1366px;height:927px}
+  .hot{position:absolute;cursor:pointer}
+  .hot:hover{outline:2px dashed rgba(0,0,0,.0)}
+  .panel{background:#fff;border-left:1px solid var(--line);overflow:auto;padding:18px}
+  h1{font-size:18px;margin:0 0 4px} h2{font-size:15px;margin:16px 0 8px}
+  .muted{color:var(--muted);font-size:13px}
+  label{display:block;font-size:13px;font-weight:600;margin:10px 0 4px}
+  input,select,textarea{width:100%;padding:8px;border:1px solid #9AA3AF;border-radius:8px;font:inherit;font-size:14px}
+  textarea{height:60px;resize:vertical}
+  .btn{background:var(--brand);color:#fff;border:0;border-radius:8px;padding:10px 14px;font-weight:600;width:100%;margin-top:12px}
+  .btn.sec{background:#fff;color:var(--ink);border:1px solid var(--line)}
+  .btn:disabled{opacity:.45;cursor:not-allowed}
+  .task{background:#EEF2FF;border-radius:8px;padding:10px;font-size:14px}
+  .moments{list-style:none;padding:0;margin:8px 0}
+  .moments li{font-size:13px;padding:6px 8px;border-radius:6px;margin-bottom:4px;background:#F9FAFB;border:1px solid var(--line)}
+  .moments li.cur{border-color:var(--brand);background:#EFF6FF;font-weight:600}
+  .moments li.done{color:var(--muted);text-decoration:line-through}
+  .ask{background:#FEF3C7;border-radius:8px;padding:10px;font-size:14px;margin:8px 0}
+  .scale{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+  .scale button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px 0;font-weight:700}
+  .scale button.sel{background:var(--brand);color:#fff;border-color:var(--brand)}
+  .scale small{display:block;font-weight:400;font-size:10px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .chips button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 10px;font-size:13px}
+  .chips button.sel{background:#111827;color:#fff}
+  table{width:100%;border-collapse:collapse;font-size:12px}
+  td,th{border-bottom:1px solid var(--line);padding:4px;text-align:left}
+  .row{display:flex;gap:8px} .row .btn{margin-top:8px}
+  .hidden{display:none}
+  .tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;background:#E5E7EB}
+  @media (max-width:900px){.app{grid-template-columns:1fr;grid-template-rows:55vh 45vh}.panel{border-left:0;border-top:1px solid var(--line)}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="stage" id="stage"><div class="viewport" id="vp"></div></div>
+  <div class="panel">
+    <!-- CONFIGURACIÓN -->
+    <section id="setup">
+      <h1>Prueba de experiencia emocional</h1>
+      <p class="muted">Paso 4 “Mapa” · SuperOfertas Ecuador · IHC 5 “A” UTA</p>
+      <label for="pc">Código del participante (no usar nombres)</label>
+      <input id="pc" placeholder="P1, P2, P3…">
+      <label for="ver">Versión a evaluar</label>
+      <select id="ver"><option value="original">Original (B-4-mapa)</option><option value="rediseno">Rediseño (Figma)</option></select>
+      <label for="fac">Facilitador/a</label>
+      <select id="fac">
+        <option>Henry Lagua</option><option>Alison Cobos</option><option>Melany Cevallos</option><option>Carlos Ramos</option>
+      </select>
+      <label><input type="checkbox" id="consent" style="width:auto"> El participante aceptó participar de forma anónima (consentimiento verbal)</label>
+      <button class="btn" id="start">Iniciar sesión</button>
+      <h2>Sesiones guardadas <span class="tag" id="count">0</span></h2>
+      <table id="tbl"><thead><tr><th>Part.</th><th>Versión</th><th>Promedio</th><th></th></tr></thead><tbody></tbody></table>
+      <div class="row">
+        <button class="btn" id="export">Exportar CSV</button>
+        <button class="btn sec" id="importBtn">Importar CSV</button>
+      </div>
+      <input type="file" id="importFile" accept=".csv" class="hidden">
+      <button class="btn sec" id="clear">Borrar todo</button>
+      <p class="muted">Los datos se guardan solo en este navegador. Exporte el CSV al terminar y súbalo a <code>evidencias/pruebas_usuarios/</code>.</p>
+    </section>
+
+    <!-- SESIÓN -->
+    <section id="session" class="hidden">
+      <h1 id="sesTitle"></h1>
+      <div class="task"><b>Lea al participante:</b> “Estás comprando un celular en SuperOfertas. Ya llenaste tus datos. En esta pantalla verifica que el pedido llegará a <b>Calle Inventada 123</b> y confirma la dirección para continuar al pago. Piensa en voz alta.”</div>
+      <ul class="moments" id="mlist"></ul>
+      <div class="ask" id="ask"></div>
+      <label>¿Cómo te sientes en este momento? (−3 muy negativo · +3 muy positivo)</label>
+      <div class="scale" id="scale"></div>
+      <label>Emoción que reporta el participante</label>
+      <div class="chips" id="chips"></div>
+      <label for="obs">Evidencia observada (qué hizo / dijo)</label>
+      <textarea id="obs" placeholder="Ej.: dudó 8 s, preguntó dónde guardar, dijo “el pin no está en mi casa”"></textarea>
+      <div id="finalBox" class="hidden">
+        <label for="conf">Al terminar: ¿Cuánto confías en este sitio para pagar? (1–5)</label>
+        <select id="conf"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+        <label for="com">Comentario final del participante</label>
+        <textarea id="com"></textarea>
+      </div>
+      <button class="btn" id="next" disabled>Guardar momento →</button>
+      <button class="btn sec" id="abort">Cancelar sesión</button>
+      <p class="muted" id="evts"></p>
+    </section>
+  </div>
+</div>
+
+<script>
+const MOMENTS = [
+  {id:'M1', fase:'Antes',   nombre:'Primera impresión', ask:'Deje que observe la pantalla 5 segundos sin tocar nada. Pregunte: “¿Qué sientes al ver esta pantalla?”'},
+  {id:'M2', fase:'Durante', nombre:'Orientación', ask:'Pregunte: “¿En qué paso de la compra estás y qué te pide hacer la pantalla?” Registre si lo entiende.'},
+  {id:'M3', fase:'Durante', nombre:'Localizar domicilio en el mapa', ask:'Pida: “Ubica en el mapa dónde llegará tu pedido.” Registre si señala el pin, el 123 o duda.'},
+  {id:'M4', fase:'Durante', nombre:'Guardar / confirmar dirección', ask:'Pida: “Guarda o confirma tu dirección.” Registre qué botón usa y si percibe que se guardó.'},
+  {id:'M5', fase:'Después', nombre:'Continuar al pago', ask:'Pida: “Continúa al pago.” Al llegar a la siguiente pantalla pregunte: “¿Qué tan seguro estás de que tu dirección quedó bien registrada?”'}
+];
+const EMOS = ['Confianza','Tranquilidad','Satisfacción','Claridad','Curiosidad','Neutral','Duda','Confusión','Frustración','Ansiedad','Presión','Desconfianza','Molestia'];
+const KEY = 'ux_emocional_sesiones_v1';
+const $ = id => document.getElementById(id);
+let sessions = load(), cur = null, idx = 0, val = null, emo = null, tMoment = 0;
+
+function load(){ try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch(e){ return []; } }
+function save(){ try { localStorage.setItem(KEY, JSON.stringify(sessions)); } catch(e){} renderTable(); }
+
+/* ---------- Prototipos ---------- */
+const vp = $('vp');
+function fit(){
+  const st = $('stage'); const s = Math.min(st.clientWidth/1366, st.clientHeight/927);
+  vp.style.transform = `scale(${s})`; vp.style.left = ((st.clientWidth - 1366*s)/2) + 'px';
+}
+addEventListener('resize', fit);
+function logEv(e){ if(!cur) return; cur.eventos.push(`${((Date.now()-cur.t0)/1000).toFixed(1)}s:${e}`); $('evts').textContent = 'Eventos: ' + cur.eventos.slice(-4).join(' · '); }
+function showOriginal(screen){
+  vp.innerHTML = '';
+  const img = new Image(); img.src = screen === 'pago' ? 'img/original-pago.jpg' : 'img/original-mapa.jpg'; vp.appendChild(img);
+  if (screen === 'pago') { img.onclick = () => logEv('clic_pantalla_pago'); return; }
+  // zonas interactivas según la captura original (1358x927)
+  const hs = [
+    [919,658,142,30,'clic_guardar_direccion', null],      // sin retroalimentación, igual que el original
+    [832,853,370,63,'clic_omitir', () => showOriginal('pago')],
+    [63,873,178,24,'clic_volver', null],
+    [64,703,33,62,'clic_zoom', null],
+    [50,372,832,442,'clic_mapa', null],
+    [886,204,117,50,'clic_paso4', null],[28,215,80,30,'clic_paso1',null],[290,215,100,30,'clic_paso2',null],[572,215,130,30,'clic_paso3',null],[1188,215,75,30,'clic_paso5',null],
+    [1060,22,80,26,'clic_ayuda',null]
+  ];
+  hs.forEach(([x,y,w,h,name,fn]) => {
+    const d = document.createElement('div'); d.className='hot';
+    Object.assign(d.style,{left:x+'px',top:y+'px',width:w+'px',height:h+'px'});
+    d.onclick = ev => { ev.stopPropagation(); logEv(name); fn && fn(); };
+    vp.appendChild(d);
+  });
+}
+function showRedesign(){
+  vp.innerHTML = '<iframe src="../rediseño/prototipo_rediseno.html" title="Prototipo rediseñado"></iframe>';
+}
+addEventListener('message', e => { if (e.data && e.data.proto === 'rediseno') logEv('estado_' + e.data.estado); });
+
+/* ---------- Sesión ---------- */
+function renderScale(){
+  const labels = {'-3':'muy neg.','0':'neutral','3':'muy pos.'};
+  $('scale').innerHTML = '';
+  for (let v=-3; v<=3; v++){
+    const b = document.createElement('button'); b.innerHTML = (v>0?'+':'') + v + `<small>${labels[v]||'&nbsp;'}</small>`;
+    if (val === v) b.className = 'sel';
+    b.onclick = () => { val = v; renderScale(); check(); }; $('scale').appendChild(b);
+  }
+}
+function renderChips(){
+  $('chips').innerHTML = '';
+  EMOS.forEach(e => { const b = document.createElement('button'); b.textContent = e; if (emo === e) b.className='sel';
+    b.onclick = () => { emo = e; renderChips(); check(); }; $('chips').appendChild(b); });
+}
+function check(){ $('next').disabled = (val === null || !emo); }
+function renderMoment(){
+  $('mlist').innerHTML = MOMENTS.map((m,i) => `<li class="${i<idx?'done':i===idx?'cur':''}">${m.id} · ${m.fase}: ${m.nombre}</li>`).join('');
+  const m = MOMENTS[idx]; $('ask').innerHTML = `<b>${m.id} – ${m.nombre}.</b> ${m.ask}`;
+  val = null; emo = null; $('obs').value = ''; renderScale(); renderChips(); check();
+  $('finalBox').classList.toggle('hidden', idx !== MOMENTS.length-1);
+  $('next').textContent = idx === MOMENTS.length-1 ? 'Guardar y finalizar sesión' : 'Guardar momento →';
+  tMoment = Date.now();
+}
+$('start').onclick = () => {
+  const p = $('pc').value.trim().toUpperCase();
+  if (!p) return alert('Ingrese un código de participante (P1, P2…).');
+  if (!$('consent').checked) return alert('Confirme el consentimiento del participante.');
+  const v = $('ver').value;
+  cur = {id: Date.now().toString(36), participante:p, version:v, facilitador:$('fac').value, fecha:new Date().toISOString().slice(0,16).replace('T',' '), t0:Date.now(), momentos:[], eventos:[]};
+  idx = 0; $('setup').classList.add('hidden'); $('session').classList.remove('hidden');
+  $('sesTitle').textContent = `${p} · ${v === 'original' ? 'Versión original' : 'Rediseño'}`;
+  v === 'original' ? showOriginal('mapa') : showRedesign(); fit(); renderMoment();
+};
+$('next').onclick = () => {
+  const m = MOMENTS[idx];
+  cur.momentos.push({momento:m.id, nombre:`${m.fase}: ${m.nombre}`, valoracion:val, emocion:emo, observacion:$('obs').value.trim(), tiempo_s:((Date.now()-tMoment)/1000).toFixed(1)});
+  if (idx < MOMENTS.length-1){ idx++; renderMoment(); return; }
+  cur.confianza_final = $('conf').value; cur.comentario_final = $('com').value.trim();
+  sessions.push(cur); save(); cur = null;
+  $('session').classList.add('hidden'); $('setup').classList.remove('hidden'); $('pc').value=''; $('consent').checked=false; vp.innerHTML='';
+  alert('Sesión guardada. Recuerde exportar el CSV.');
+};
+$('abort').onclick = () => { if (confirm('¿Cancelar la sesión sin guardar?')) { cur=null; $('session').classList.add('hidden'); $('setup').classList.remove('hidden'); vp.innerHTML=''; } };
+
+/* ---------- Tabla / CSV ---------- */
+function renderTable(){
+  $('count').textContent = sessions.length;
+  $('tbl').querySelector('tbody').innerHTML = sessions.map((s,i) => {
+    const avg = s.momentos.reduce((a,m)=>a+Number(m.valoracion),0)/s.momentos.length;
+    return `<tr><td>${s.participante}</td><td>${s.version}</td><td>${avg.toFixed(2)}</td><td><button data-i="${i}" class="del">✕</button></td></tr>`;
+  }).join('');
+  document.querySelectorAll('.del').forEach(b => b.onclick = () => { if(confirm('¿Eliminar esta sesión?')){ sessions.splice(+b.dataset.i,1); save(); } });
+}
+const COLS = ['sesion_id','participante','version','facilitador','fecha','momento','momento_nombre','valoracion','emocion','observacion','tiempo_s','confianza_final','comentario_final','eventos'];
+const q = v => { v = (v ?? '').toString(); return /[",\n;]/.test(v) ? '"' + v.replace(/"/g,'""') + '"' : v; };
+$('export').onclick = () => {
+  const rows = [COLS.join(',')];
+  sessions.forEach(s => s.momentos.forEach((m,i) => rows.push([s.id,s.participante,s.version,s.facilitador,s.fecha,m.momento,m.nombre,m.valoracion,m.emocion,m.observacion,m.tiempo_s,
+    i===s.momentos.length-1 ? s.confianza_final : '', i===s.momentos.length-1 ? s.comentario_final : '', i===0 ? s.eventos.join(' | ') : ''].map(q).join(','))));
+  const blob = new Blob(['﻿' + rows.join('\n')], {type:'text/csv;charset=utf-8'});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'resultados_pruebas.csv'; a.click();
+};
+function parseCSV(t){
+  const out=[]; let row=[], f='', inQ=false;
+  for (let i=0;i<t.length;i++){ const c=t[i];
+    if (inQ){ if (c=='"' && t[i+1]=='"'){ f+='"'; i++; } else if (c=='"') inQ=false; else f+=c; }
+    else if (c=='"') inQ=true; else if (c==','){ row.push(f); f=''; } else if (c=='\n'){ row.push(f); out.push(row); row=[]; f=''; } else if (c!='\r') f+=c; }
+  if (f || row.length){ row.push(f); out.push(row); } return out;
+}
+$('importBtn').onclick = () => $('importFile').click();
+$('importFile').onchange = async e => {
+  const rows = parseCSV((await e.target.files[0].text()).replace(/^﻿/,'')); const h = rows.shift();
+  const by = {};
+  rows.filter(r => r.length > 5).forEach(r => { const o = Object.fromEntries(h.map((k,i)=>[k,r[i]]));
+    const s = by[o.sesion_id] ||= {id:o.sesion_id, participante:o.participante, version:o.version, facilitador:o.facilitador, fecha:o.fecha, momentos:[], eventos:[]};
+    s.momentos.push({momento:o.momento, nombre:o.momento_nombre, valoracion:Number(o.valoracion), emocion:o.emocion, observacion:o.observacion, tiempo_s:o.tiempo_s});
+    if (o.confianza_final) s.confianza_final = o.confianza_final; if (o.comentario_final) s.comentario_final = o.comentario_final;
+    if (o.eventos) s.eventos = o.eventos.split(' | '); });
+  Object.values(by).forEach(s => { if (!sessions.some(x => x.id === s.id)) sessions.push(s); });
+  save(); e.target.value = '';
+};
+$('clear').onclick = () => { if (confirm('¿Borrar TODAS las sesiones de este navegador? Exporte antes.')) { sessions = []; save(); } };
+renderTable(); fit();
+</script>
+</body>
+</html>
