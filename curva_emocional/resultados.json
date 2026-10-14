@@ -1,0 +1,278 @@
+{
+  "original": {
+    "participantes": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "individuales": {
+      "P1": {
+        "M1": -2.0,
+        "M2": -1.0,
+        "M3": -2.0,
+        "M4": -3.0,
+        "M5": -2.0
+      },
+      "P2": {
+        "M1": -1.0,
+        "M2": -1.0,
+        "M3": -3.0,
+        "M4": -2.0,
+        "M5": -3.0
+      },
+      "P3": {
+        "M1": -2.0,
+        "M2": 0.0,
+        "M3": -2.0,
+        "M4": -3.0,
+        "M5": -2.0
+      }
+    },
+    "momentos": {
+      "M1": {
+        "promedio": -1.67,
+        "promedio_exact": -1.6666666666666667,
+        "desv": 0.47,
+        "n": 3,
+        "min": -2.0,
+        "max": -1.0,
+        "emocion": "Mixta (Presión / Desconfianza / Ansiedad)",
+        "emociones": "Presión (1), Desconfianza (1), Ansiedad (1)",
+        "observaciones": [
+          "P1: El contador en rojo me pone nervioso y da la sensación de sitio engañoso",
+          "P2: Demasiados colores y ofertas gritando; parece anuncio engañoso",
+          "P3: Siento que me están apurando con los 10 minutos y el fondo amarillo distrae"
+        ],
+        "tiempo": 7.4,
+        "tiempo_exact": 7.366666666666666
+      },
+      "M2": {
+        "promedio": -0.67,
+        "promedio_exact": -0.6666666666666666,
+        "desv": 0.47,
+        "n": 3,
+        "min": -1.0,
+        "max": 0.0,
+        "emocion": "Mixta (Duda / Confusión / Neutral)",
+        "emociones": "Duda (1), Confusión (1), Neutral (1)",
+        "observaciones": [
+          "P1: No sé bien si ya pasé datos o si falta mucho para terminar",
+          "P2: El título en mayúsculas no aclara qué acción debo realizar",
+          "P3: Me costó distinguir en qué etapa del proceso estoy por la tipografía pequeña"
+        ],
+        "tiempo": 14.2,
+        "tiempo_exact": 14.233333333333333
+      },
+      "M3": {
+        "promedio": -2.33,
+        "promedio_exact": -2.3333333333333335,
+        "desv": 0.47,
+        "n": 3,
+        "min": -3.0,
+        "max": -2.0,
+        "emocion": "Mixta (Confusión / Frustración / Duda)",
+        "emociones": "Confusión (1), Frustración (1), Duda (1)",
+        "observaciones": [
+          "P1: Hay un pin rojo arriba y un 123 abajo; no sé cuál es mi casa",
+          "P2: Intenté hacer zoom en el mapa y los controles casi no se ven ni responden",
+          "P3: No entiendo por qué el pin rojo está tan lejos del número 123"
+        ],
+        "tiempo": 24.6,
+        "tiempo_exact": 24.6
+      },
+      "M4": {
+        "promedio": -2.67,
+        "promedio_exact": -2.6666666666666665,
+        "desv": 0.47,
+        "n": 3,
+        "min": -3.0,
+        "max": -2.0,
+        "emocion": "Mixta (Frustración / Duda / Molestia)",
+        "emociones": "Frustración (1), Duda (1), Molestia (1)",
+        "observaciones": [
+          "P1: Hice clic en Guardar dirección tres veces y no respondió nada",
+          "P2: Pensé que el botón gris Guardar estaba inactivo o deshabilitado",
+          "P3: No da ningún aviso de que se guardó; me quedé con la duda"
+        ],
+        "tiempo": 22.2,
+        "tiempo_exact": 22.2
+      },
+      "M5": {
+        "promedio": -2.33,
+        "promedio_exact": -2.3333333333333335,
+        "desv": 0.47,
+        "n": 3,
+        "min": -3.0,
+        "max": -2.0,
+        "emocion": "Desconfianza",
+        "emociones": "Desconfianza (3)",
+        "observaciones": [
+          "P1: El botón verde OMITIR me asustó; pensé que borraba mi dirección",
+          "P2: Al llegar al pago me querían cobrar una suscripción que nunca pedí",
+          "P3: No me dio seguridad de que se guardó mi dirección antes de cobrarme"
+        ],
+        "tiempo": 18.4,
+        "tiempo_exact": 18.366666666666667
+      }
+    },
+    "criticos": [
+      "M4",
+      "M3"
+    ],
+    "mayor_caida": [
+      "M3",
+      -1.67
+    ],
+    "promedio_general": -1.93,
+    "promedio_general_exact": -1.9333333333333333,
+    "tiempo_total": 86.8,
+    "tiempo_promedio": 17.4,
+    "confianza_final": 1.67,
+    "confianza_final_exact": 1.6666666666666667
+  },
+  "rediseno": {
+    "participantes": [
+      "P1",
+      "P2",
+      "P3"
+    ],
+    "individuales": {
+      "P1": {
+        "M1": 2.0,
+        "M2": 2.0,
+        "M3": 2.0,
+        "M4": 3.0,
+        "M5": 3.0
+      },
+      "P2": {
+        "M1": 2.0,
+        "M2": 3.0,
+        "M3": 2.0,
+        "M4": 3.0,
+        "M5": 2.0
+      },
+      "P3": {
+        "M1": 3.0,
+        "M2": 2.0,
+        "M3": 3.0,
+        "M4": 2.0,
+        "M5": 3.0
+      }
+    },
+    "momentos": {
+      "M1": {
+        "promedio": 2.33,
+        "promedio_exact": 2.3333333333333335,
+        "desv": 0.47,
+        "n": 3,
+        "min": 2.0,
+        "max": 3.0,
+        "emocion": "Tranquilidad",
+        "emociones": "Tranquilidad (2), Confianza (1)",
+        "observaciones": [
+          "P1: Se ve mucho más limpio y formal; la ausencia de contador da calma",
+          "P2: La barra superior con garantía y envío protegido da credibilidad",
+          "P3: Me gusta el diseño despejado; no me siento acosado por ofertas falsas"
+        ],
+        "tiempo": 5.1,
+        "tiempo_exact": 5.133333333333334
+      },
+      "M2": {
+        "promedio": 2.33,
+        "promedio_exact": 2.3333333333333335,
+        "desv": 0.47,
+        "n": 3,
+        "min": 2.0,
+        "max": 3.0,
+        "emocion": "Claridad",
+        "emociones": "Claridad (2), Confianza (1)",
+        "observaciones": [
+          "P1: Sé exactamente que voy en el paso 4 de 5 y qué se espera de mí",
+          "P2: Los vistos en verde dejan claro lo que ya completé y cuánto me falta",
+          "P3: Instrucción clara y tipografía muy legible; directo al grano"
+        ],
+        "tiempo": 7.9,
+        "tiempo_exact": 7.866666666666666
+      },
+      "M3": {
+        "promedio": 2.33,
+        "promedio_exact": 2.3333333333333335,
+        "desv": 0.47,
+        "n": 3,
+        "min": 2.0,
+        "max": 3.0,
+        "emocion": "Satisfacción",
+        "emociones": "Satisfacción (2), Confianza (1)",
+        "observaciones": [
+          "P1: El globo sobre la casa 123 confirma exactamente el punto de entrega",
+          "P2: El mapa es claro y los botones de zoom son cómodos de presionar",
+          "P3: Se entiende claro dónde llegará el pedido por la etiqueta 'Entregaremos aquí' sobre la casa 123"
+        ],
+        "tiempo": 9.4,
+        "tiempo_exact": 9.433333333333334
+      },
+      "M4": {
+        "promedio": 2.67,
+        "promedio_exact": 2.6666666666666665,
+        "desv": 0.47,
+        "n": 3,
+        "min": 2.0,
+        "max": 3.0,
+        "emocion": "Mixta (Satisfacción / Confianza / Tranquilidad)",
+        "emociones": "Satisfacción (1), Confianza (1), Tranquilidad (1)",
+        "observaciones": [
+          "P1: Apareció el aviso verde al instante; supe de inmediato que funcionó",
+          "P2: Excelente la confirmación visual en verde y tener la opción de editar",
+          "P3: Muy clara la respuesta del sistema al confirmar la dirección"
+        ],
+        "tiempo": 7.1,
+        "tiempo_exact": 7.1
+      },
+      "M5": {
+        "promedio": 2.67,
+        "promedio_exact": 2.6666666666666665,
+        "desv": 0.47,
+        "n": 3,
+        "min": 2.0,
+        "max": 3.0,
+        "emocion": "Mixta (Confianza / Tranquilidad / Satisfacción)",
+        "emociones": "Confianza (1), Tranquilidad (1), Satisfacción (1)",
+        "observaciones": [
+          "P1: El flujo hacia el pago es natural y transparente; me dio mucha seguridad",
+          "P2: Transición clara sin cargos ocultos ni sorpresas en el resumen",
+          "P3: El proceso completo transmite seriedad y control absoluto"
+        ],
+        "tiempo": 8.0,
+        "tiempo_exact": 8.0
+      }
+    },
+    "criticos": [
+      "M1",
+      "M2"
+    ],
+    "mayor_caida": [
+      "M2",
+      0.0
+    ],
+    "promedio_general": 2.47,
+    "promedio_general_exact": 2.466666666666667,
+    "tiempo_total": 37.5,
+    "tiempo_promedio": 7.5,
+    "confianza_final": 4.67,
+    "confianza_final_exact": 4.666666666666667
+  },
+  "comparacion": {
+    "M1": 4.0,
+    "M2": 3.0,
+    "M3": 4.67,
+    "M4": 5.33,
+    "M5": 5.0
+  },
+  "comparacion_tiempos": {
+    "M1": -2.3,
+    "M2": -6.3,
+    "M3": -15.2,
+    "M4": -15.1,
+    "M5": -10.4
+  }
+}
