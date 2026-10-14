@@ -1,0 +1,31 @@
+sesion_id,participante,version,facilitador,fecha,momento,momento_nombre,valoracion,emocion,observacion,tiempo_s,confianza_final,comentario_final,eventos
+m2v8q4p1,P1,original,Carlos Ramos,2026-10-13 15:14,M1,Antes: Primera impresión,-2,Presión,El contador en rojo me pone nervioso y da la sensación de sitio engañoso,7.2,,,clic_ayuda
+m2v8q4p1,P1,original,Carlos Ramos,2026-10-13 15:14,M2,Durante: Orientación,-1,Duda,No sé bien si ya pasé datos o si falta mucho para terminar,14.5,,,
+m2v8q4p1,P1,original,Carlos Ramos,2026-10-13 15:14,M3,Durante: Localizar domicilio en el mapa,-2,Confusión,Hay un pin rojo arriba y un 123 abajo; no sé cuál es mi casa,24.3,,,clic_mapa | clic_zoom
+m2v8q4p1,P1,original,Carlos Ramos,2026-10-13 15:14,M4,Durante: Guardar / confirmar dirección,-3,Frustración,Hice clic en Guardar dirección tres veces y no respondió nada,22.1,,,clic_guardar_direccion
+m2v8q4p1,P1,original,Carlos Ramos,2026-10-13 15:14,M5,Después: Continuar al pago,-2,Desconfianza,El botón verde OMITIR me asustó; pensé que borraba mi dirección,18.2,2,El sitio parece dudoso con tantas ofertas raras y botones confusos,clic_omitir
+m2v8x7r5,P2,original,Carlos Ramos,2026-10-13 15:32,M1,Antes: Primera impresión,-1,Desconfianza,Demasiados colores y ofertas gritando; parece anuncio engañoso,6.8,,,
+m2v8x7r5,P2,original,Carlos Ramos,2026-10-13 15:32,M2,Durante: Orientación,-1,Confusión,El título en mayúsculas no aclara qué acción debo realizar,16.2,,,
+m2v8x7r5,P2,original,Carlos Ramos,2026-10-13 15:32,M3,Durante: Localizar domicilio en el mapa,-3,Frustración,Intenté hacer zoom en el mapa y los controles casi no se ven ni responden,28.1,,,clic_zoom | clic_mapa
+m2v8x7r5,P2,original,Carlos Ramos,2026-10-13 15:32,M4,Durante: Guardar / confirmar dirección,-2,Duda,Pensé que el botón gris Guardar estaba inactivo o deshabilitado,19.5,,,clic_guardar_direccion
+m2v8x7r5,P2,original,Carlos Ramos,2026-10-13 15:32,M5,Después: Continuar al pago,-3,Desconfianza,Al llegar al pago me querían cobrar una suscripción que nunca pedí,20.4,1,No ingresaría mi tarjeta de crédito ni datos personales en esta página,clic_omitir
+m2v95k92,P3,original,Carlos Ramos,2026-10-13 15:51,M1,Antes: Primera impresión,-2,Ansiedad,Siento que me están apurando con los 10 minutos y el fondo amarillo distrae,8.1,,,
+m2v95k92,P3,original,Carlos Ramos,2026-10-13 15:51,M2,Durante: Orientación,0,Neutral,Me costó distinguir en qué etapa del proceso estoy por la tipografía pequeña,12.0,,,
+m2v95k92,P3,original,Carlos Ramos,2026-10-13 15:51,M3,Durante: Localizar domicilio en el mapa,-2,Duda,No entiendo por qué el pin rojo está tan lejos del número 123,21.4,,,clic_mapa
+m2v95k92,P3,original,Carlos Ramos,2026-10-13 15:51,M4,Durante: Guardar / confirmar dirección,-3,Molestia,No da ningún aviso de que se guardó; me quedé con la duda,25.0,,,clic_guardar_direccion
+m2v95k92,P3,original,Carlos Ramos,2026-10-13 15:51,M5,Después: Continuar al pago,-2,Desconfianza,No me dio seguridad de que se guardó mi dirección antes de cobrarme,16.5,2,Poco profesional; da miedo que el producto no llegue al destino correcto,clic_omitir
+m2v9dh43,P1,rediseno,Carlos Ramos,2026-10-13 16:11,M1,Antes: Primera impresión,2,Tranquilidad,Se ve mucho más limpio y formal; la ausencia de contador da calma,5.1,,,
+m2v9dh43,P1,rediseno,Carlos Ramos,2026-10-13 16:11,M2,Durante: Orientación,2,Claridad,Sé exactamente que voy en el paso 4 de 5 y qué se espera de mí,8.2,,,
+m2v9dh43,P1,rediseno,Carlos Ramos,2026-10-13 16:11,M3,Durante: Localizar domicilio en el mapa,2,Satisfacción,El globo sobre la casa 123 confirma exactamente el punto de entrega,9.1,,,clic_mapa
+m2v9dh43,P1,rediseno,Carlos Ramos,2026-10-13 16:11,M4,Durante: Guardar / confirmar dirección,3,Satisfacción,Apareció el aviso verde al instante; supe de inmediato que funcionó,7.1,,,estado_confirmado
+m2v9dh43,P1,rediseno,Carlos Ramos,2026-10-13 16:11,M5,Después: Continuar al pago,3,Confianza,El flujo hacia el pago es natural y transparente; me dio mucha seguridad,8.0,5,Totalmente confiable; se siente como una tienda seria y profesional,estado_pago
+m2v9lu88,P2,rediseno,Carlos Ramos,2026-10-13 16:29,M1,Antes: Primera impresión,2,Confianza,La barra superior con garantía y envío protegido da credibilidad,4.9,,,
+m2v9lu88,P2,rediseno,Carlos Ramos,2026-10-13 16:29,M2,Durante: Orientación,3,Claridad,Los vistos en verde dejan claro lo que ya completé y cuánto me falta,7.5,,,
+m2v9lu88,P2,rediseno,Carlos Ramos,2026-10-13 16:29,M3,Durante: Localizar domicilio en el mapa,2,Confianza,El mapa es claro y los botones de zoom son cómodos de presionar,10.4,,,
+m2v9lu88,P2,rediseno,Carlos Ramos,2026-10-13 16:29,M4,Durante: Guardar / confirmar dirección,3,Confianza,Excelente la confirmación visual en verde y tener la opción de editar,6.8,,,estado_confirmado
+m2v9lu88,P2,rediseno,Carlos Ramos,2026-10-13 16:29,M5,Después: Continuar al pago,2,Tranquilidad,Transición clara sin cargos ocultos ni sorpresas en el resumen,7.8,4,Mucho mejor; ahora sí realizaría la compra con tarjeta con confianza,estado_pago
+m2v9t02b,P3,rediseno,Carlos Ramos,2026-10-13 16:47,M1,Antes: Primera impresión,3,Tranquilidad,Me gusta el diseño despejado; no me siento acosado por ofertas falsas,5.4,,,
+m2v9t02b,P3,rediseno,Carlos Ramos,2026-10-13 16:47,M2,Durante: Orientación,2,Confianza,Instrucción clara y tipografía muy legible; directo al grano,7.9,,,
+m2v9t02b,P3,rediseno,Carlos Ramos,2026-10-13 16:47,M3,Durante: Localizar domicilio en el mapa,3,Satisfacción,Se entiende claro dónde llegará el pedido por la etiqueta 'Entregaremos aquí' sobre la casa 123,8.8,,,clic_mapa
+m2v9t02b,P3,rediseno,Carlos Ramos,2026-10-13 16:47,M4,Durante: Guardar / confirmar dirección,2,Tranquilidad,Muy clara la respuesta del sistema al confirmar la dirección,7.4,,,estado_confirmado
+m2v9t02b,P3,rediseno,Carlos Ramos,2026-10-13 16:47,M5,Después: Continuar al pago,3,Satisfacción,El proceso completo transmite seriedad y control absoluto,8.2,5,La experiencia cambió por completo; es intuitivo y da tranquilidad,estado_pago
